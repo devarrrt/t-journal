@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Paper, Button, IconButton, Avatar, List, ListItem } from '@material-ui/core';
 import {
@@ -62,9 +63,9 @@ const Header = (props: Props) => {
                 <IconButton>
                     <MenuIcon />
                 </IconButton>
-                <a href="/">
+                <Link to="/">
                     <img height={35} className="mr-20" src={logoSvg} alt="Logo" />
-                </a>
+                </Link>
 
                 <div className={styles.searchBlock}>
                     <SearchIcon />
@@ -74,20 +75,20 @@ const Header = (props: Props) => {
                         <Paper className={styles.searchBlockPopup}>
                             <List>
                                 {posts.map((obj) => (
-                                    <a key={obj.id} href={`/news/${obj.id}`}>
+                                    <Link key={obj.id} to={`/news/${obj.id}`}>
                                         <ListItem button>{obj.title}</ListItem>
-                                    </a>
+                                    </Link>
                                 ))}
                             </List>
                         </Paper>
                     )}
                 </div>
 
-                <a href="/write">
+                <Link to="/write">
                     <Button variant="contained" className={styles.penButton}>
                         Add a note
                     </Button>
-                </a>
+                </Link>
             </div>
 
             <div className="d-flex align-center">
@@ -97,15 +98,15 @@ const Header = (props: Props) => {
                 <IconButton>
                     <NotificationIcon />
                 </IconButton>
-                {userData ? (
-                    <a href="/profile" className="d-flex align-center">
+                 {userData ? (
+                    <Link to="/profile" className="d-flex align-center">
                         <Avatar
                             className={styles.avatar}
                             alt="Remy Sharp"
                             src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
                         />
                         <ArrowBottom />
-                    </a>
+                    </Link>
                 ) : (
                     <div className={styles.loginButton} onClick={openAuthDialog}>
                         <UserIcon />
@@ -114,7 +115,7 @@ const Header = (props: Props) => {
                 )}
             </div>
             <AuthDialog onClose={closeAuthDialog} visible={authVisible} />
-        </Paper>
+        </Paper >
     )
 }
 

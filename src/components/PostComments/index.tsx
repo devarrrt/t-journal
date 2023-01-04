@@ -3,6 +3,7 @@ import { Divider, Paper, Tab, Tabs, Typography } from '@material-ui/core';
 import { OutputData } from '@editorjs/editorjs';
 
 import useComments from '../../hooks/useComments'
+import data from '../../data'
 
 import Comment from '../Comment'
 import AddCommentForm from '../AddComment'
@@ -44,7 +45,9 @@ export type CommentItem = {
 
 const PostComments: FC<PostCommentsProps> = ({ postId }) => {
     const [activeTab, setActiveTab] = useState(0);
-    const { comments, setComments } = useComments(postId);
+    const { setComments } = useComments(postId);
+    const comments = data.comments[activeTab === 0 ? 'popular' : 'new']
+
     const userData = {
         id: 1,
         user: 'Alania Bill',

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { Button, Dialog, DialogContent, DialogContentText, Divider, TextField, Typography } from '@material-ui/core';
+import { Dialog, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import MainForm from '../../forms/Main'
+import MainForm from './forms/Main'
+import LoginForm from './forms/Login'
+import RegisterForm from './forms/Register'
 
 import styles from './AuthDialog.module.scss';
 
@@ -13,7 +15,6 @@ interface AuthDialogProps {
 
 const AuthDialog: React.FC<AuthDialogProps> = ({ onClose, visible }) => {
     const [formType, setFormType] = useState<'main' | 'login' | 'register'>('main');
-
 
     return (
         <Dialog open={visible} onClose={onClose} maxWidth="xs" fullWidth>
@@ -30,10 +31,10 @@ const AuthDialog: React.FC<AuthDialogProps> = ({ onClose, visible }) => {
                             )}
                         </Typography>
                         {formType === 'main' && <MainForm onOpenLogin={() => setFormType('login')} />}
-                        {/*    {formType === 'login' && <LoginForm onOpenRegister={() => setFormType('register')} />}
+                        {formType === 'login' && <LoginForm onOpenRegister={() => setFormType('register')} />}
                         {formType === 'register' && (
                             <RegisterForm onOpenRegister={() => setFormType('register')} onOpenLogin={() => setFormType('login')} />
-                        )} */}
+                        )}
                     </div>
                 </DialogContentText>
             </DialogContent>

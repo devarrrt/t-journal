@@ -17,7 +17,7 @@ const postData =
   imageUrl: 'https://leonardo.osnova.io/5cff215f-de3d-b44c-a0b5-c0052dfdbf91/-/preview/1200/'
 }
 
-interface ProfileProps {}
+interface ProfileProps { }
 
 const Profile: FC<ProfileProps> = () => {
   return (

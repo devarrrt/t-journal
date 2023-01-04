@@ -26,12 +26,12 @@ export type ResponseUser = {
 };
 
 interface CommentItemProps {
+  id: string;
   user: ResponseUser;
   text: string;
   post: PostItem;
 }
 
-///fix any
 const CommentItem: FC<any> = ({ obj }) => {
 
   return (
@@ -39,7 +39,7 @@ const CommentItem: FC<any> = ({ obj }) => {
       <div className={styles.userInfo}>
         <Avatar style={{ marginRight: 10 }}>{obj?.user?.fullName}</Avatar>
         <a href={`/profile/${obj?.user.id}`}>
-          <b>{obj?.user.fullName}</b>
+          <b>{obj?.user?.fullname}</b>
         </a>
       </div>
       <p className={styles.text}>{obj?.text}</p>

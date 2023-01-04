@@ -11,15 +11,16 @@ import Follows from './pages/Follows';
 import Rating from './pages/Rating';
 import Messages from './pages/Messages';
 import FullPostPage from './pages/FullPostPage';
+import CreatePost from './pages/CreatePost'
 
 import { theme } from './theme';
 
 const App = () => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header />
-      <Router>
+    <Router>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -28,10 +29,11 @@ const App = () => {
           <Route path="/rating" element={<Rating />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/news/:id" element={<FullPostPage />} />
+          <Route path="/write" element={<CreatePost />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </Router>
-    </MuiThemeProvider>
+      </MuiThemeProvider>
+    </Router>
   );
 };
 
